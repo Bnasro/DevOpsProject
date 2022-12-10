@@ -57,6 +57,15 @@ public class Voyage  implements Serializable {
 	@ManyToMany
     public List<Voyageur> mesVoyageurs;
 
+	
+	public Voyage(long codeVoyage, double heureDepart, double heureArrivee) {
+		super();
+		this.codeVoyage = codeVoyage;
+		this.heureDepart = heureDepart;
+		this.heureArrivee = heureArrivee;
+	}
+
+
 	public Voyage(long codeVoyage, Ville gareDepart, Ville gareArrivee) {
 		super();
 		this.codeVoyage = codeVoyage;
