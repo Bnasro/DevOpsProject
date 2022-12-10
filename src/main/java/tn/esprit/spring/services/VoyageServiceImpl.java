@@ -17,8 +17,8 @@ public class VoyageServiceImpl implements IVoyageService {
     @Autowired
     TrainRepository trainRepository;
     @Override
-    public void ajouterVoyage(Voyage v) {
-        voyageRepository.save(v);
+    public Voyage ajouterVoyage(Voyage v) {
+        return voyageRepository.save(v);
     }
 
     @Override
@@ -49,7 +49,7 @@ public class VoyageServiceImpl implements IVoyageService {
 
     @Override
     public void supprimerVoyage(Voyage v) {
-        //TODO method
+    	voyageRepository.deleteById(v.getIdVoyage());
     }
 
 }

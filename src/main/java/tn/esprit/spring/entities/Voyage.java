@@ -57,6 +57,12 @@ public class Voyage  implements Serializable {
 	@ManyToMany
     public List<Voyageur> mesVoyageurs;
 
+	public Voyage(long codeVoyage, Ville gareDepart, Ville gareArrivee) {
+		super();
+		this.codeVoyage = codeVoyage;
+		this.gareDepart = gareDepart;
+		this.gareArrivee = gareArrivee;
+	}
 
 	public long getCodeVoyage() {
 		return codeVoyage;
@@ -161,6 +167,10 @@ public class Voyage  implements Serializable {
 	public Voyage() {
 		super();
 	}
+
+
+	
+	
 	
 	
 
