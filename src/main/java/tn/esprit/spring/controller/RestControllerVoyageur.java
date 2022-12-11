@@ -35,9 +35,34 @@ public class RestControllerVoyageur {
     @ApiOperation(value="ajouter Voyage")
     @PostMapping("/ajouterVoyage")
     @ResponseBody
-    public void ajouterGare(@RequestBody Voyage voiture) {
-        ivoyageservice.ajouterVoyage(voiture);
+    public void ajouterGare(@RequestBody Voyage voyage) {
+        ivoyageservice.ajouterVoyage(voyage);
     }
+    
+    @GetMapping("/retrieve-all-Voyages")
+	@ResponseBody
+	public List<Voyage> getVoyages() {
+		return ivoyageservice.recupererAll();
+	}
+
+	@GetMapping("/retrieve-Voyage/{Voyage-id}")
+	@ResponseBody
+	public Voyage retrieveVoyage(@PathVariable("Voyage-id") Long VoyageId) {
+		return ivoyageservice.recupererVoyageParId(VoyageId);
+	}
+
+	@DeleteMapping("/remove-Voyage/{Voyage-id}")
+	@ResponseBody
+	public void removeVoyage(@PathVariable("Voyage-id") Long VoyageId) {
+		ivoyageservice.supprimerVoyage(ivoyageservice.recupererVoyageParId(VoyageId));
+	}
+
+	
+	@PutMapping("/modify-Voyage")
+	@ResponseBody
+	public void modifyVoyage(@RequestBody Voyage Voyage) {
+		 ivoyageservice.modifierVoyage(Voyage);
+	}
 
 
     ////http://localhost:8083/SpringMVC/servlet/ajouterTrain
