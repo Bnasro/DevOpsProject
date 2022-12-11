@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import tn.esprit.spring.entities.Voyageur;
 import tn.esprit.spring.entities.Train;
 import tn.esprit.spring.entities.Ville;
@@ -16,6 +18,7 @@ import tn.esprit.spring.services.ITrainService;
 import tn.esprit.spring.services.IVoyageService;
 
 @RestController
+@Api(tags="GestionVoyageur")
 public class RestControllerVoyageur {
 
 
@@ -29,6 +32,7 @@ public class RestControllerVoyageur {
     IVoyageurService iVoyageurservice;
 
     //http://localhost:8083/SpringMVC/servlet/ajouterVoyage
+    @ApiOperation(value="ajouter Voyage")
     @PostMapping("/ajouterVoyage")
     @ResponseBody
     public void ajouterGare(@RequestBody Voyage voiture) {
